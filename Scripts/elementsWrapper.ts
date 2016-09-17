@@ -1,19 +1,23 @@
 ﻿class elementsWrapper {
     /*объект для хранения данных для нокаута*/
-    Settings = { x: 0, y: 0, star: null };
+    Settings = { x: 0, y: 0 };
+
+    // object helps to determine what element should draw
     arr: Array<Shape> = [];
 
-    constructor(ko: any) {
-        /*незаконченный вариант инициализация объектов. !!! Переделать!*/
-        var star = new Star(ko, "star", "Звезда")
+    constructor(ko: any, canvasObject: CanvasContext) {
+        //create an instance of the class
+        var star = new Star(ko, canvasObject, this.Settings, "Звезда")
+        // add to the UI
+        star.Init("#collapse-group");
+        // add to the elements array
         this.arr.push(star);
-        star.AddButton("#collapse-group");
-        this.Settings.star = star.ElementSettings;
+        
 
-       /* var circle = new Circle('circle', 'Круг');
-        arr.push(circle);
-        circle.AddButton("#collapse-group");
-        Settings.circle = circle.ElementSettings;*/
+        var circle = new Circle(ko, canvasObject, this.Settings, 'Круг');
+        circle.Init("#collapse-group");
+        this.arr.push(circle);
+
 
         ko.applyBindings(this.Settings);
 
@@ -29,15 +33,11 @@
         });
 
         /*color-picker для фона*/
-        /*$('#colorpicker').farbtastic(function (color) {
+        $.farbtastic('#colorpicker', function (color) {
             $("#cnv").css("background-color", color);
-        });*/
+        });
 
-        // цветовой круг для цвезды
-       /* $("#colorCircle").farbtastic(function (color) {
-            $("#color").val(color).css("background-color", color);
-            $("#color").change();
-        });*/
+        
 
         /* цветовой круг для круга */
        /* $("#colorCircleForCircle").farbtastic(function (color) {
@@ -53,7 +53,7 @@
                     item.startDrawing(e);
                     return;
                 }
-            })
+            });
         }
         else {
             alert("Выберите тип элемента для отрисовка")

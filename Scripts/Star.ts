@@ -1,64 +1,99 @@
 ﻿class Star extends Shape {
+    localSettings: any;
+    constructor(ko: any, canvasObject: CanvasContext, Settings: any, name: string) {
 
-    ElementSettings = {
-        /*lineUserLength: ko.observable(30),  // введено пользователем
-        lineLength: ko.observable(0),      // применяется
-        linewidth: ko.observable(1),
-        lineColor: ko.observable("#000000"),
-        linesCount: ko.observable(6),
-        step: 5,
-        rotationAngle: ko.observable(0)*/
-    }
+        // init the main params of the class
+        super("star", name, "StarSettingsTemplate", "starTemplate", canvasObject);
 
-    constructor(ko: any, title: string, name: string) {
-        super(title, name);
-        this.Init(ko);
-    }
-
-    Init(ko: any)
-    {
-        this.ElementSettings = {
+        // add class defenetion to the observable object
+        this.localSettings = Settings;
+        this.localSettings.star = {
             lineUserLength: ko.observable(30),  // введено пользователем
             lineLength: ko.observable(0),      // применяется
             linewidth: ko.observable(1),
             lineColor: ko.observable("#000000"),
             linesCount: ko.observable(6),
             step: 5,
-            rotationAngle: ko.observable(0)
+            rotationAngle: ko.observable(0),
+            isLoaded: ko.observable(false)
         }
     }
-    AddButton (container: string) {
-        super.AddContainer(container, 'SettingsTemplate');
+
+    // download class to the UI
+    Init(container: string)
+    {
+        this.loadFields();
+        this.AddSection(container);
     }
-    startDrawing(e) {
-        alert("123");
-        /*Settings.x = e.pageX - canvas.offsetLeft;
-        Settings.y = e.pageY - canvas.offsetTop;
 
-        this.changeLineLenghtToDots();
-
-        this.Rotation(this.inRad(Settings.star.rotationAngle()));
-
-        this.makeBaseLines(Settings.x, Settings.y, Settings.star.lineLength());
-        this.makeJoinLines(Settings.x, Settings.y, Settings.star.linesCount(), Settings.star.lineLength());
-
-        this.Rotation(-this.inRad(Settings.star.rotationAngle()));
-        //console.log(Settings); */ 
+    // add block to the UI panel
+    AddSection(container: string) {
+        super.AddSection(container, this.templateName);
     }
-    /*changeLineLenghtToDots = function () {
-        var length = parseInt(Settings.star.lineUserLength());
-        var dots = parseInt(Settings.star.linesCount());
 
-        Settings.star.step = Math.round(length / dots);
+    // Add fields into the block
+    loadFields() {
+        //should to be without whis for callback
+        var settings = this.localSettings;
 
-        var realLenght = Settings.star.step * dots
-        Settings.star.lineLength(realLenght);
+        if (!settings.star.isLoaded()) {
+            super.loadTemplateCollection(this.templateFileName, function () {
+                settings.star.isLoaded(true);
+
+                // подгружаем цветовой круг для звезды, когда шаблон загружен
+                $.farbtastic('#starColorCircle', function (color) {
+                    $("#starColor").val(color).css("background-color", color);
+                    $("#starColor").change();
+                });
+            });
+        }     
     }
-    makeJoinLines = function (x, y, linesCount, lenght) {
-        var centre, end = 0;
-        for (i = 0; i < linesCount; i++) {
-            end = i * Settings.star.step;
-            centre = (i + 1) * Settings.star.step;
+
+    startDrawing(e: any) {
+
+        this.localSettings.x = e.pageX;
+        this.localSettings.y = e.pageY;
+
+        this.changeLineLenght();
+
+        super.Rotation(this.localSettings.x, this.localSettings.y, this.localSettings.star.rotationAngle());
+
+        this.makeBaseLines(this.localSettings.x, this.localSettings.y, this.localSettings.star.lineLength());
+        this.makeJoinLines(this.localSettings.x, this.localSettings.y, this.localSettings.star.linesCount(), this.localSettings.star.lineLength());
+
+        this.Rotation(this.localSettings.x, this.localSettings.y, this.localSettings.star.rotationAngle(), -1);
+    }
+
+    makeBaseLines = function (x, y, length) {
+        this.DrawLines(x, y, x + length, y);
+        this.DrawLines(x, y, x - length, y);
+        this.DrawLines(x, y, x, y + length);
+        this.DrawLines(x, y, x, y - length);
+    }
+
+    changeLineLenght() {
+        var length: number = parseInt(this.localSettings.star.lineUserLength());
+        var dots: number = parseInt(this.localSettings.star.linesCount());
+
+        this.localSettings.star.step = Math.round(length / dots);
+
+        var realLenght: number = this.localSettings.star.step * dots
+        this.localSettings.star.lineLength(realLenght);
+    }
+
+    DrawLines(fromX, fromY, toX, toY) {
+        var lineWidth: number = parseInt(this.localSettings.star.linewidth());
+        var lineColor: string = this.localSettings.star.lineColor();
+        super.DrawLines(fromX, fromY, toX, toY, lineWidth, lineColor);
+    }
+
+    makeJoinLines(x, y, linesCount, lenght) {
+        var centre: number = 0;
+        var end: number = 0;
+
+        for (var i = 0; i < linesCount; i++) {
+            end = i * this.localSettings.star.step;
+            centre = (i + 1) * this.localSettings.star.step;
 
             this.DrawLines(x, y + centre, x + lenght - end, y); // право - низ
             this.DrawLines(x, y - centre, x + lenght - end, y); // право - верх
@@ -66,15 +101,4 @@
             this.DrawLines(x, y - centre, x - lenght + end, y); // лево - верх
         }
     }
-    makeBaseLines = function (x, y, length) {
-        this.DrawLines(x, y, x + length, y);
-        this.DrawLines(x, y, x - length, y);
-        this.DrawLines(x, y, x, y + length);
-        this.DrawLines(x, y, x, y - length);
-    }
-    DrawLines = function (fromX, fromY, toX, toY) {
-        var lineWidth = parseInt(Settings.star.linewidth());
-        var lineColor = Settings.star.lineColor();
-        Shape.prototype.DrawLines.apply(this, [fromX, fromY, toX, toY, lineWidth, lineColor]);
-    }*/
 }

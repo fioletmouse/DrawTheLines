@@ -6,45 +6,9 @@
     <title>Lines of your dream</title>
     <link type="text/css" href="Content/app.css" rel="stylesheet" />
     <link type="text/css" href="Content/bootstrap/bootstrap.css" rel="stylesheet" />
-    <!--<link type="text/css" href="CSS/farbtastic.css" rel="stylesheet" />
-    -->
+    <link type="text/css" href="Content/farbtastic.css" rel="stylesheet" />
 </head>
 <body>
-
-    <script type="text/html" id="SettingsTemplate">
-        <div id="settingsPanel">
-            <div class="settingsRow">
-                <label for="length">Длина луча:</label>
-                <input id="length" data-bind="value: lineUserLength" />
-                <span>px</span>
-            </div>
-            <div class="settingsRow">
-                <span>Реальная длина луча:</span>
-                <span data-bind="text: lineLength"></span>
-                <span>px</span>
-            </div>
-            <div class="settingsRow">
-                <label for="linesCount">Количество линий:</label>
-                <input id="linesCount" data-bind="value: linesCount" />
-                <span>шт</span>
-            </div>
-            <div class="settingsRow">
-                <label for="rotationAngle">Угол поворота:</label>
-                <input id="rotationAngle" data-bind="value: rotationAngle" />
-                <span>°</span>
-            </div>
-            <div class="settingsRow">
-                <label for="linewidth">Толщина линий:</label>
-                <input type="text" id="linewidth" data-bind="value: linewidth" />
-                <span>px</span>
-            </div>
-            <div class="settingsRow">
-                <label for="color">Цвет линий:</label>
-                <input type="text" id="color" name="color" style="width:40%" data-bind="value: lineColor" />
-            </div>
-            <div id="colorCircle"></div>
-        </div>
-    </script>
 <div id="MainContainer">
     <!--выезжающая панель-->
     <div id="slide-panel">
@@ -77,9 +41,9 @@
                 </div>
                 <div id="el4" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <button type="button" class="add-button" onclick="clearContext()"> <span class="glyphicon glyphicon-refresh"></span> Очистить</button>
+                        <button type="button" class="add-button" id="clearCanvas"> <span class="glyphicon glyphicon-refresh"></span> Очистить</button>
                         <br />
-                        <button type="button" class="add-button" onclick="saveImage()"> <span class="glyphicon glyphicon-floppy-disk"></span> Сохранить</button>
+                        <button type="button" class="add-button" id="saveImg"> <span class="glyphicon glyphicon-floppy-disk"></span> Сохранить</button>
                     </div>
                 </div>
             </div>
@@ -92,9 +56,11 @@
 <script type="text/javascript" src="Scripts/libs/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="Scripts/libs/knockout-3.4.0.js"></script>
 <script type="text/javascript" src="Scripts/libs/bootstrap.js"></script>
+<script type="text/javascript" src="Scripts/libs/farbtastic.js"></script>
 <script type="text/javascript" src="Scripts/App.js"></script>
 <script type="text/javascript" src="Scripts/CanvasContext.js"></script>
 <script type="text/javascript" src="Scripts/ElementsWrapper.js"></script>
 <script type="text/javascript" src="Scripts/Shape.js"></script>
 <script type="text/javascript" src="Scripts/Star.js"></script>
+<script type="text/javascript" src="Scripts/Circle.js"></script>
 </html>

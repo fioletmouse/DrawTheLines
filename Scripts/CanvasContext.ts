@@ -14,8 +14,8 @@
         this.setDefaultColor();
     }
 
-    setDefaultColor() {
-        $("#cnv").css("background-color", "black");
+    setDefaultColor(color: string = "black") {
+        $("#cnv").css("background-color", color);
     }
 
     clearContext() {

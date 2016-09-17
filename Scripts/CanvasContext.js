@@ -9,8 +9,9 @@ var CanvasContext = (function () {
         this.canvas.height = window.innerHeight;
         this.setDefaultColor();
     };
-    CanvasContext.prototype.setDefaultColor = function () {
-        $("#cnv").css("background-color", "black");
+    CanvasContext.prototype.setDefaultColor = function (color) {
+        if (color === void 0) { color = "black"; }
+        $("#cnv").css("background-color", color);
     };
     CanvasContext.prototype.clearContext = function () {
         this.context.setTransform(1, 0, 0, 1, 0, 0); // default params

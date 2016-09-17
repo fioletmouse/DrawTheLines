@@ -18,6 +18,10 @@ See the Apache Version 2.0 License for specific language governing permissions
 and limitations under the License.
 ***************************************************************************** */
 
+interface Farbtastic {
+    linkTo(callback: Function): void;
+    setColor(color: string): void;
+}
 
 /**
  * Interface for the AJAX setting that will configure the AJAX request
@@ -622,7 +626,7 @@ interface JQueryEasingFunctions {
  * Static members of jQuery (those on $ and jQuery themselves)
  */
 interface JQueryStatic {
-
+    farbtastic(element: string, callback?: Function): Farbtastic;
     /**
      * Perform an asynchronous HTTP (Ajax) request.
      *
@@ -1177,6 +1181,7 @@ interface JQueryStatic {
  * The jQuery instance members
  */
 interface JQuery {
+    farbtastic(element: string, callback?: Function): void;
     /**
      * Register a handler to be called when Ajax requests complete. This is an AjaxEvent.
      *
