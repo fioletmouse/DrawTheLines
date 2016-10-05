@@ -1,0 +1,6 @@
+C:\Users\Nezumi\Documents\Visual Studio 2015\Projects\DrawTheLines\DrawTheLines\bin\DrawTheLines.dll.config
+C:\Users\Nezumi\Documents\Visual Studio 2015\Projects\DrawTheLines\DrawTheLines\bin\DrawTheLines.dll
+C:\Users\Nezumi\Documents\Visual Studio 2015\Projects\DrawTheLines\DrawTheLines\bin\DrawTheLines.pdb
+C:\Users\Nezumi\Documents\Visual Studio 2015\Projects\DrawTheLines\DrawTheLines\obj\Debug\DrawTheLines.csprojResolveAssemblyReference.cache
+C:\Users\Nezumi\Documents\Visual Studio 2015\Projects\DrawTheLines\DrawTheLines\obj\Debug\DrawTheLines.dll
+C:\Users\Nezumi\Documents\Visual Studio 2015\Projects\DrawTheLines\DrawTheLines\obj\Debug\DrawTheLines.pdb

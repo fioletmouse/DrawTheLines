@@ -1,0 +1,29 @@
+﻿<script type="text/html" id="CircleSettingsTemplate">
+    <div id="settingsCirclePanel">
+        <div class="settingsRow">
+            <label for="length">Радиус:</label>
+            <input id="radiusLength" data-bind="value: radiusLength" />
+            <span>px</span>
+        </div>
+        <div class="settingsRow">
+            <label for="dotsCircleCount">Линий на круг:</label>
+            <input id="dotsCircleCount" data-bind="value: linesCount" />
+            <span>шт</span>
+        </div>
+        <div class="settingsRow">
+            <span>Фактически линий:</span>
+            <span data-bind="text: linesRealCount"></span>
+            <span>шт</span>
+        </div>
+        <div class="settingsRow">
+            <label for="lineCireclewidth">Толщина линий:</label>
+            <input type="text" id="lineCireclewidth" data-bind="value: linewidth" />
+            <span>px</span>
+        </div>
+        <div class="settingsRow">
+            <label for="colorCircle">Цвет линий:</label>
+            <input type="text" id="circleColor" name="color" style="width:40%" data-bind="value: lineColor" />
+        </div>
+        <div id="circleColorCircle"></div>
+    </div>
+</script>
