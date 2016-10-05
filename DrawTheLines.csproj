@@ -22,6 +22,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="circleTemplate.html" />
     <Content Include="Content\app.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
@@ -45,6 +46,7 @@
     <Content Include="Scripts\libs\jquery-1.9.1.min.js" />
     <Content Include="Scripts\libs\knockout-3.4.0.debug.js" />
     <Content Include="Scripts\libs\knockout-3.4.0.js" />
+    <Content Include="starTemplate.html" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
