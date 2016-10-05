@@ -48,9 +48,9 @@
             });
         }     
     }
-
+    restore() { super.restore(); };
     startDrawing(e: any) {
-
+        super.startDrawing(e);
         this.localSettings.x = e.pageX;
         this.localSettings.y = e.pageY;
 

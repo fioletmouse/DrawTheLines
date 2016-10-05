@@ -29,12 +29,10 @@ var elementsWrapper = (function () {
         $.farbtastic('#colorpicker', function (color) {
             $("#cnv").css("background-color", color);
         });
-        /* цветовой круг для круга */
-        /* $("#colorCircleForCircle").farbtastic(function (color) {
-             $("#colorCirclePicker").val(color).css("background-color", color);
-             $("#colorCirclePicker").change();
-         })*/
     }
+    elementsWrapper.prototype.restore = function () {
+        this.arr[0].restore();
+    };
     elementsWrapper.prototype.startEvent = function (e) {
         if ($('#collapse-group div[aria-expanded=true]')[0] != null) {
             this.arr.forEach(function (item, i, arr) {

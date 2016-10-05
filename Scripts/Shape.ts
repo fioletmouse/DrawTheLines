@@ -4,7 +4,7 @@
     templateName: string;
     templateFileName: string;
     canvasObj: CanvasContext;
-
+    tmp: CanvasContext;
     constructor(title: string, name: string, templateName: string, templateFileName: string, canvasObject: CanvasContext) {
         this.title = title;
         this.name = name;
@@ -18,8 +18,14 @@
     };
 
     // mouse click event for every class
-    startDrawing(e: any) { };
-
+    startDrawing(e: any)
+    {
+        this.tmp = this.canvasObj.context;
+    };
+    restore()
+    {
+        this.canvasObj.context = this.tmp;
+    };
     DrawLines(fromX: number, fromY: number, toX: number, toY: number, lineWidth: number, lineColor: string) {
         this.canvasObj.context.beginPath();
         this.canvasObj.context.lineWidth = lineWidth;

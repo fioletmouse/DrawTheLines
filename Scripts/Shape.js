@@ -11,7 +11,13 @@ var Shape = (function () {
     };
     ;
     // mouse click event for every class
-    Shape.prototype.startDrawing = function (e) { };
+    Shape.prototype.startDrawing = function (e) {
+        this.tmp = this.canvasObj.context;
+    };
+    ;
+    Shape.prototype.restore = function () {
+        this.canvasObj.context = this.tmp;
+    };
     ;
     Shape.prototype.DrawLines = function (fromX, fromY, toX, toY, lineWidth, lineColor) {
         this.canvasObj.context.beginPath();

@@ -50,6 +50,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\App.ts" />
     <TypeScriptCompile Include="Scripts\CanvasContext.ts" />
+    <TypeScriptCompile Include="Scripts\Circle.ts" />
     <TypeScriptCompile Include="Scripts\ElementsWrapper.ts" />
     <TypeScriptCompile Include="Scripts\Shape.ts" />
     <TypeScriptCompile Include="Scripts\Star.ts" />

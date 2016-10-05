@@ -18,7 +18,6 @@
         circle.Init("#collapse-group");
         this.arr.push(circle);
 
-
         ko.applyBindings(this.Settings);
 
         /*строим слайдер*/
@@ -36,16 +35,11 @@
         $.farbtastic('#colorpicker', function (color) {
             $("#cnv").css("background-color", color);
         });
-
-        
-
-        /* цветовой круг для круга */
-       /* $("#colorCircleForCircle").farbtastic(function (color) {
-            $("#colorCirclePicker").val(color).css("background-color", color);
-            $("#colorCirclePicker").change();
-        })*/
     }
-
+    restore()
+    {
+        this.arr[0].restore();
+    }
     startEvent(e) {
         if ($('#collapse-group div[aria-expanded=true]')[0] != null) {
             this.arr.forEach(function (item, i, arr) {
