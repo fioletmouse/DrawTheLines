@@ -41,9 +41,14 @@
                 </div>
                 <div id="el4" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <button type="button" class="add-button" id="clearCanvas"> <span class="glyphicon glyphicon-refresh"></span> Очистить</button>
-                        <br />
-                        <button type="button" class="add-button" id="saveImg"> <span class="glyphicon glyphicon-floppy-disk"></span> Сохранить</button>
+                        <button type="button" class="add-button" id="undo"><span class="glyphicon glyphicon glyphicon-arrow-left"></span> Туда</button>
+                        <button type="button" class="add-button" id="redo">Сюда <span class="glyphicon glyphicon glyphicon-arrow-right"></span></button>
+                        <br/>
+                        <button type="button" class="add-button" id="clearCanvas"> <span class="glyphicon glyphicon-refresh"></span> Начать Сначала</button>
+                        <br /><br />
+                        <label>Сохранить как: </label>
+                        <input type="text" id="fileName" value="" placeholder="Имя Файла"/>
+                        <button type="button" class="add-button" id="saveImg"> <span class="glyphicon glyphicon-floppy-disk"></span></button>
                     </div>
                 </div>
             </div>
@@ -58,6 +63,7 @@
 <script type="text/javascript" src="Scripts/libs/knockout-3.4.0.js"></script>
 <script type="text/javascript" src="Scripts/libs/bootstrap.js"></script>
 <script type="text/javascript" src="Scripts/libs/farbtastic.js"></script>
+<script type="text/javascript" src="Scripts/libs/FileSaver.js"></script>
 <script type="text/javascript" src="Scripts/App.js"></script>
 <script type="text/javascript" src="Scripts/CanvasContext.js"></script>
 <script type="text/javascript" src="Scripts/ElementsWrapper.js"></script>

@@ -36,10 +36,7 @@
             $("#cnv").css("background-color", color);
         });
     }
-    restore()
-    {
-        this.arr[0].restore();
-    }
+
     startEvent(e) {
         if ($('#collapse-group div[aria-expanded=true]')[0] != null) {
             this.arr.forEach(function (item, i, arr) {

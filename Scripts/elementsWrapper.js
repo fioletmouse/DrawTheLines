@@ -30,9 +30,6 @@ var elementsWrapper = (function () {
             $("#cnv").css("background-color", color);
         });
     }
-    elementsWrapper.prototype.restore = function () {
-        this.arr[0].restore();
-    };
     elementsWrapper.prototype.startEvent = function (e) {
         if ($('#collapse-group div[aria-expanded=true]')[0] != null) {
             this.arr.forEach(function (item, i, arr) {

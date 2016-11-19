@@ -6,6 +6,6 @@ window.onload = function () {
     var elementsInitializer = new elementsWrapper(ko, canvasObject);
     canvasObject.setClickAction(elementsInitializer);
     $("#clearCanvas").on("click", canvasObject.clearContext.bind(canvasObject));
-    $("#saveImg").on("click", elementsInitializer.restore.bind(elementsInitializer));
+    $("#saveImg").on("click", function () { canvasObject.saveCanvas.call(canvasObject, $("#fileName").first().val()); });
 };
 //# sourceMappingURL=App.js.map
