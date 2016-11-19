@@ -51,8 +51,6 @@ var Star = (function (_super) {
             });
         }
     };
-    Star.prototype.restore = function () { _super.prototype.restore.call(this); };
-    ;
     Star.prototype.startDrawing = function (e) {
         _super.prototype.startDrawing.call(this, e);
         this.localSettings.x = e.pageX;

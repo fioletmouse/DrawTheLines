@@ -27,4 +27,17 @@
     setClickAction(handler: elementsWrapper) {
         this.canvas.onclick = handler.startEvent.bind(handler);
     }
+
+    saveCanvas(name: string) {
+        var dateTime = "_" + new Date().getDate() + "_" + new Date().getMonth() + "_" + new Date().getFullYear() + "_" +
+            new Date().getHours() + "_" + new Date().getMinutes();
+
+        if (name == null || name == "") {
+            name = "lines_of_your_dream";
+        }
+
+        this.canvas.toBlob(function (blob) {
+            saveAs(blob, name + dateTime + ".png");
+        }, "image/png");
+    }
 }

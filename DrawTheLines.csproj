@@ -42,6 +42,7 @@
     <None Include="Scripts\libs\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\libs\bootstrap.js" />
     <Content Include="Scripts\libs\bootstrap.min.js" />
+    <Content Include="Scripts\libs\FileSaver.js" />
     <Content Include="Scripts\libs\jquery-1.9.1.js" />
     <Content Include="Scripts\libs\jquery-1.9.1.min.js" />
     <Content Include="Scripts\libs\knockout-3.4.0.debug.js" />
@@ -56,6 +57,7 @@
     <TypeScriptCompile Include="Scripts\ElementsWrapper.ts" />
     <TypeScriptCompile Include="Scripts\Shape.ts" />
     <TypeScriptCompile Include="Scripts\Star.ts" />
+    <TypeScriptCompile Include="Scripts\typings\FileSaver\FileSaver.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>
